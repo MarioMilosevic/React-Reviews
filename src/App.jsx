@@ -4,14 +4,16 @@ import reviews from "../data/data";
 import Employee from "./components/Employee";
 
 function App() {
-  const [person,setPerson] = useState();
-  
+  const [person, setPerson] = useState();
+  const [firstPerson] = reviews;
   useEffect(() => {
-  setPerson(reviews)
-  console.log(reviews)
-  }, [])
+    setPerson(reviews);
+    console.log(firstPerson)
+    console.log(reviews);
+  }, []);
   return (
     <>
+      <Employee firstPerson={firstPerson}/>
     </>
   );
 }
