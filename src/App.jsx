@@ -10,7 +10,7 @@ function App() {
   const incrementCount = () => {
     setTimeout(() => {
       if (count < reviews.length - 1) {
-        setCount(count + 1);
+        setCount((prev) => prev + 1 );
       } else {
         setCount(0);
       }
@@ -20,7 +20,7 @@ function App() {
   const decrementCount = () => {
     setTimeout(() => {
       if (count > 0) {
-        setCount(count - 1);
+        setCount((prev) => prev - 1);
       } else {
         setCount(reviews.length - 1);
       }

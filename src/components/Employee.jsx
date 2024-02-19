@@ -1,3 +1,4 @@
+import { useState } from "react";
 import SurpriseMeButton from "./SurpriseMeButton";
 
 const Employee = ({
@@ -6,6 +7,7 @@ const Employee = ({
   decrementCount,
   randomCount,
 }) => {
+  const [count, setCount] = useState(0);
   const randomCountHandler = () => {
     randomCount();
   };
@@ -80,6 +82,8 @@ const Employee = ({
             />
           </svg>
         </div>
+        <h1>{count}</h1>
+        <button onClick={() => setCount((prev) => prev + 1)}>Klikni m,e</button>
         <SurpriseMeButton randomCount={randomCountHandler} />
       </article>
     </>
