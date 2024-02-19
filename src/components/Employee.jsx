@@ -1,25 +1,9 @@
-import { useState } from "react";
+import { AppContext } from "../App";
+import { useContext } from "react";
 import SurpriseMeButton from "./SurpriseMeButton";
 
-const Employee = ({
-  firstPerson,
-  incrementCount,
-  decrementCount,
-  randomCount,
-}) => {
-  const [count, setCount] = useState(0);
-  const randomCountHandler = () => {
-    randomCount();
-  };
-
-  const decrementCountHandler = () => {
-    decrementCount();
-  };
-
-  const incrementCountHandler = () => {
-    incrementCount();
-  };
-
+const Employee = ({ firstPerson }) => {
+  const appCtx = useContext(AppContext);
   return (
     <>
       <article className="w-[560px] h-[500px] flex flex-col items-center justify-center p-4 bg-white shadow-md">
@@ -51,7 +35,7 @@ const Employee = ({
         <p className="pt-2">{firstPerson.text}</p>
         <div className="flex gap-2 p-4">
           <svg
-            onClick={decrementCountHandler}
+            onClick={appCtx.decrementCount}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -67,7 +51,7 @@ const Employee = ({
           </svg>
 
           <svg
-            onClick={incrementCountHandler}
+            onClick={appCtx.incrementCount}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -82,9 +66,7 @@ const Employee = ({
             />
           </svg>
         </div>
-        <h1>{count}</h1>
-        <button onClick={() => setCount((prev) => prev + 1)}>Klikni m,e</button>
-        <SurpriseMeButton randomCount={randomCountHandler} />
+        <SurpriseMeButton />
       </article>
     </>
   );
