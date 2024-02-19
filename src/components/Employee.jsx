@@ -1,4 +1,18 @@
-const Employee = ({ firstPerson }) => {
+import SurpriseMeButton from "./SurpriseMeButton";
+
+const Employee = (
+  { firstPerson },
+  incrementCount,
+  decrementCount,
+  randomCount
+) => {
+  console.log(incrementCount);
+
+  const onRandomCountHandler = () => {
+    console.log("nesto");
+    randomCount();
+  };
+
   return (
     <>
       <article className="w-[560px] flex flex-col items-center justify-center border border-black">
@@ -10,14 +24,14 @@ const Employee = ({ firstPerson }) => {
         <h2 className="capitalize">{firstPerson.name}</h2>
         <h3 className="capitalize">{firstPerson.job}</h3>
         <p>{firstPerson.text}</p>
-        <div>
+        <div className="border border-black flex gap-2 pb-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-6 h-6"
+            className="w-6 h-6 text-blue-700 fill-current"
           >
             <path
               strokeLinecap="round"
@@ -41,7 +55,7 @@ const Employee = ({ firstPerson }) => {
             />
           </svg>
         </div>
-        <button>Surprise Me</button>
+        <SurpriseMeButton onClick={onRandomCountHandler} />
       </article>
     </>
   );

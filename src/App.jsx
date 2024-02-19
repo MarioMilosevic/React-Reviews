@@ -15,6 +15,12 @@ function App() {
     setCount(count - 1);
   };
 
+  const randomCount = () => {
+    const randomNumber = Math.floor(Math.random()*4)
+    console.log('random')
+    setCount(randomNumber)
+  }
+
   let firstPerson = reviews[count];
 
   useEffect(() => {
@@ -22,7 +28,7 @@ function App() {
   }, []);
   return (
     <>
-      <Employee firstPerson={firstPerson} />
+      <Employee firstPerson={firstPerson} decrementCount={decrementCount} incrementCount={incrementCount} randomCount={randomCount}/>
     </>
   );
 }
