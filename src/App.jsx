@@ -8,21 +8,31 @@ function App() {
   const [count, setCount] = useState(0);
 
   const incrementCount = () => {
-    if(count < reviews.length - 1) {
-      setCount(count + 1);
-    }
+    setTimeout(() => {
+      if (count < reviews.length - 1) {
+        setCount(count + 1);
+      } else {
+        setCount(0);
+      }
+    }, 500);
   };
 
   const decrementCount = () => {
-    if(count > 0){
-      setCount(count - 1);
-    }
+    setTimeout(() => {
+      if (count > 0) {
+        setCount(count - 1);
+      } else {
+        setCount(reviews.length - 1);
+      }
+    }, 500);
   };
 
   const randomCount = () => {
-    const randomNumber = Math.floor(Math.random()*4)
-    setCount(randomNumber)
-  }
+    setTimeout(() => {
+      const randomNumber = Math.floor(Math.random() * 4);
+      setCount(randomNumber);
+    }, 500);
+  };
 
   let firstPerson = reviews[count];
 
@@ -31,7 +41,12 @@ function App() {
   }, []);
   return (
     <>
-      <Employee firstPerson={firstPerson} decrementCount={decrementCount} incrementCount={incrementCount} randomCount={randomCount}/>
+      <Employee
+        firstPerson={firstPerson}
+        decrementCount={decrementCount}
+        incrementCount={incrementCount}
+        randomCount={randomCount}
+      />
     </>
   );
 }
