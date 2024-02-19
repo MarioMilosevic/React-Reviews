@@ -1,5 +1,4 @@
 const Employee = ({ firstPerson }) => {
-  console.log(firstPerson);
   return (
     <>
       <article className="w-[560px] flex flex-col items-center justify-center border border-black">

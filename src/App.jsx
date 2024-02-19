@@ -5,15 +5,24 @@ import Employee from "./components/Employee";
 
 function App() {
   const [person, setPerson] = useState();
-  const [firstPerson] = reviews;
+  const [count, setCount] = useState(0);
+
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
+
+  const decrementCount = () => {
+    setCount(count - 1);
+  };
+
+  let firstPerson = reviews[count];
+
   useEffect(() => {
-    setPerson(reviews);
-    console.log(firstPerson)
-    console.log(reviews);
+    setPerson(count);
   }, []);
   return (
     <>
-      <Employee firstPerson={firstPerson}/>
+      <Employee firstPerson={firstPerson} />
     </>
   );
 }
