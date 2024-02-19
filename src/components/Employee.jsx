@@ -1,17 +1,24 @@
 import SurpriseMeButton from "./SurpriseMeButton";
 
-const Employee = (
-  { firstPerson },
+const Employee = ({
+  firstPerson,
   incrementCount,
   decrementCount,
-  randomCount
-) => {
-  console.log(incrementCount);
+  randomCount,
+}) => {
 
-  const onRandomCountHandler = () => {
-    console.log("nesto");
+  const randomCountHandler = () => {
     randomCount();
   };
+
+  const decrementCountHandler = () => {
+    decrementCount()
+  }
+
+  const incrementCountHandler = () => {
+    incrementCount()
+  }
+
 
   return (
     <>
@@ -26,6 +33,7 @@ const Employee = (
         <p>{firstPerson.text}</p>
         <div className="border border-black flex gap-2 pb-2">
           <svg
+          onClick={decrementCountHandler}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -41,6 +49,7 @@ const Employee = (
           </svg>
 
           <svg
+          onClick={incrementCountHandler}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -55,7 +64,7 @@ const Employee = (
             />
           </svg>
         </div>
-        <SurpriseMeButton onClick={onRandomCountHandler} />
+        <SurpriseMeButton randomCount={randomCountHandler} />
       </article>
     </>
   );

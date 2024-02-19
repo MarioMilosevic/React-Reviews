@@ -8,16 +8,19 @@ function App() {
   const [count, setCount] = useState(0);
 
   const incrementCount = () => {
-    setCount(count + 1);
+    if(count < reviews.length - 1) {
+      setCount(count + 1);
+    }
   };
 
   const decrementCount = () => {
-    setCount(count - 1);
+    if(count > 0){
+      setCount(count - 1);
+    }
   };
 
   const randomCount = () => {
     const randomNumber = Math.floor(Math.random()*4)
-    console.log('random')
     setCount(randomNumber)
   }
 
